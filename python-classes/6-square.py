@@ -2,9 +2,6 @@
 """Square class"""
 
 
-from turtle import position
-
-
 class Square:
     """square private instance attritute size"""
     def __init__(self, size=0, position=(0, 0)):
