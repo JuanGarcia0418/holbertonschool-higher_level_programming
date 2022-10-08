@@ -2,9 +2,6 @@
 """Defines a class rectangle"""
 
 
-from traceback import print_stack
-
-
 class Rectangle:
     """Representacion of a rectangle"""
 
