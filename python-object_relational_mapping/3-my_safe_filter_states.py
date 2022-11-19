@@ -16,7 +16,7 @@ if __name__ == "__main__":
         cursor.execute("""
                     SELECT *
                     FROM states
-                    WHERE BINARY name='{:s}'
+                    WHERE name = '{:s}'
                     ORDER BY id ASC
                     """.format(sys.argv[4]))
 
