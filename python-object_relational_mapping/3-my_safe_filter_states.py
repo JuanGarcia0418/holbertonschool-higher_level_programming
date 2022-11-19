@@ -13,7 +13,7 @@ def filter_name():
                             db=sys.argv[3])
 
         cursor = db.cursor()
-        cursor.execute("SELECT *FROM states WHERE BINARY name='{:s}'\
+        cursor.execute("SELECT * FROM states WHERE BINARY name='{:s}'\
                         ORDER BY id ASC".format(sys.argv[4]))
         rows = cursor.fetchall()
         for row in rows:
