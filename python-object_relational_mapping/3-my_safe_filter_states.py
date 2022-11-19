@@ -13,12 +13,13 @@ if __name__ == "__main__":
                             db=sys.argv[3])
 
         cursor = db.cursor()
+        st = sys.argv[4].split('\'')
         cursor.execute("""
                     SELECT *
                     FROM states
                     WHERE name = '{:s}'
                     ORDER BY id ASC
-                    """.format(sys.argv[4]))
+                    """.format(st[0]))
 
         rows = cursor.fetchall()
         for row in rows:
