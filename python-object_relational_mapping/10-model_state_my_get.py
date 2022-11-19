@@ -12,14 +12,10 @@ if __name__ == "__main__":
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
     session = Session(engine)
-    rows = session.query(State).order_by(State.id).all()
-    res = ""
-
-    for row in rows:
-        if sys.argv[4] in row.name:
-            res = row.id            
-    if res != "":
-        print(res)
+    rows = session.query(State).filter(State.name == sys.argv[4]).first()
+         
+    if rows:
+        print("{}".format(rows.id))
     else:
         print("Not Found")
         
