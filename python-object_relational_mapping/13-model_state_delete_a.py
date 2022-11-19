@@ -12,12 +12,12 @@ if __name__ == "__main__":
                             sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
     session = Session(engine)
-    rows = session.query(State).order_by(State.id)
+    rows = session.query(State).all()
 
     for row in rows:
         if 'a' in row.name:
             session.delete(row)
-    
+
     session.commit()
 
     session.close()
