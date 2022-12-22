@@ -1,11 +1,12 @@
 #!/usr/bin/node
-const request = require('request');
-const fs = require('fs');
-const url = process.argv[2];
-request(url, function (error, response, body) {
-  if (!error && response.statusCode === 200) {
-    fs.writeFile(process.argv[3], body, 'utf-8');
+require('request').get(process.argv[2], function (err, r, body) {
+  if (err) {
+    console.log(err);
   } else {
-    console.log(error);
+    require('fs').writeFile(process.argv[3], body, 'utf-8', function (err) {
+      if (err) {
+        console.log(err);
+      }
+    });
   }
 });
