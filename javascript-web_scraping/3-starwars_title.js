@@ -1,9 +1,11 @@
 #!/usr/bin/node
-require('request').get('http://swapi.co/api/films/' + process.argv[2] + '/',
-  function (err, r, body) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(JSON.parse(body).title);
-    }
-  });
+const request = require('request');
+const { argv } = require('process');
+request(`https://swapi-api.hbtn.io/api/films/${argv[2]}`, function (error, response, body) {
+  if (error) {
+    console.log(error);
+  } else {
+    const obtained = JSON.parse(body);
+    console.log(`${obtained.title}`);
+  }
+});
